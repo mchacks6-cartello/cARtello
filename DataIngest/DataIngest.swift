@@ -67,7 +67,7 @@ public struct DataPoint {
                 guard let networkJson = value as? [String: String] else {
                     continue
                 }
-                guard let network = Network(from: networkJson) else {
+                guard let network = Network(named: key, from: networkJson) else {
                     continue
                 }
                 oNetworks.append(network)
@@ -94,13 +94,15 @@ public struct Network {
         static let rtt = "rtt_ms"
     }
     
+    public let name: String
     public let rssi: Double?
     public let bandwidth: Double?
     public let jitter: Double?
     public let loss: Double?
     public let rtt: Double?
     
-    init?(from json: [String: String]) {
+    init?(named name: String, from json: [String: String]) {
+        self.name = name
         if let oRssi = json[Keys.rssiKey] {
             rssi = Double(oRssi)
         } else {
@@ -129,6 +131,15 @@ public struct Network {
         guard rssi != nil || bandwidth != nil || jitter != nil || loss != nil || rtt != nil else {
             return nil
         }
+    }
+    
+    init(name: String, rssi: Double?, bandwidth: Double? = nil, jitter: Double? = nil, loss: Double? = nil, rtt: Double? = nil) {
+        self.name = name
+        self.rssi = rssi
+        self.bandwidth = bandwidth
+        self.jitter = jitter
+        self.loss = loss
+        self.rtt = rtt
     }
     
 }
