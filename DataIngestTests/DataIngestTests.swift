@@ -1,15 +1,15 @@
 //
-//  RTCarTests.swift
-//  RTCarTests
+//  DataIngestTests.swift
+//  DataIngestTests
 //
 //  Created by Russell Pecka on 2/2/19.
 //  Copyright © 2019 Russell Pecka. All rights reserved.
 //
 
 import XCTest
-@testable import RTCar
+@testable import DataIngest
 
-class RTCarTests: XCTestCase {
+class DataIngestTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
