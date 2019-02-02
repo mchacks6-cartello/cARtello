@@ -15,6 +15,14 @@
 		41DD99DA22061F8700403EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DD99D822061F8700403EFA /* LaunchScreen.storyboard */; };
 		41DD99E522061F8700403EFA /* cARtelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99E422061F8700403EFA /* cARtelloTests.swift */; };
 		41DD99F022061F8700403EFA /* cARtelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99EF22061F8700403EFA /* cARtelloUITests.swift */; };
+		41DD9A042206224800403EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A032206224800403EFA /* AppDelegate.swift */; };
+		41DD9A062206224800403EFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A052206224800403EFA /* ViewController.swift */; };
+		41DD9A092206224800403EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A072206224800403EFA /* Main.storyboard */; };
+		41DD9A0C2206224800403EFA /* RTCar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A0A2206224800403EFA /* RTCar.xcdatamodeld */; };
+		41DD9A0E2206224800403EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A0D2206224800403EFA /* Assets.xcassets */; };
+		41DD9A112206224800403EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A0F2206224800403EFA /* LaunchScreen.storyboard */; };
+		41DD9A1C2206224800403EFA /* RTCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A1B2206224800403EFA /* RTCarTests.swift */; };
+		41DD9A272206224900403EFA /* RTCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A262206224900403EFA /* RTCarUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +39,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 41DD99C922061F8600403EFA;
 			remoteInfo = cARtello;
+		};
+		41DD9A182206224800403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9A002206224800403EFA;
+			remoteInfo = RTCar;
+		};
+		41DD9A232206224900403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9A002206224800403EFA;
+			remoteInfo = RTCar;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,6 +71,20 @@
 		41DD99EB22061F8700403EFA /* cARtelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cARtelloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DD99EF22061F8700403EFA /* cARtelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cARtelloUITests.swift; sourceTree = "<group>"; };
 		41DD99F122061F8700403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A012206224800403EFA /* RTCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9A032206224800403EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41DD9A052206224800403EFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		41DD9A082206224800403EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41DD9A0B2206224800403EFA /* RTCar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RTCar.xcdatamodel; sourceTree = "<group>"; };
+		41DD9A0D2206224800403EFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41DD9A102206224800403EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41DD9A122206224800403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A172206224800403EFA /* RTCarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTCarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9A1B2206224800403EFA /* RTCarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCarTests.swift; sourceTree = "<group>"; };
+		41DD9A1D2206224800403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A222206224800403EFA /* RTCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9A262206224900403EFA /* RTCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCarUITests.swift; sourceTree = "<group>"; };
+		41DD9A282206224900403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +109,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		41DD99FE2206224800403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A142206224800403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A1F2206224800403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +139,9 @@
 				41DD99CC22061F8600403EFA /* cARtello */,
 				41DD99E322061F8700403EFA /* cARtelloTests */,
 				41DD99EE22061F8700403EFA /* cARtelloUITests */,
+				41DD9A022206224800403EFA /* RTCar */,
+				41DD9A1A2206224800403EFA /* RTCarTests */,
+				41DD9A252206224900403EFA /* RTCarUITests */,
 				41DD99CB22061F8600403EFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +152,9 @@
 				41DD99CA22061F8600403EFA /* cARtello.app */,
 				41DD99E022061F8700403EFA /* cARtelloTests.xctest */,
 				41DD99EB22061F8700403EFA /* cARtelloUITests.xctest */,
+				41DD9A012206224800403EFA /* RTCar.app */,
+				41DD9A172206224800403EFA /* RTCarTests.xctest */,
+				41DD9A222206224800403EFA /* RTCarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +189,38 @@
 				41DD99F122061F8700403EFA /* Info.plist */,
 			);
 			path = cARtelloUITests;
+			sourceTree = "<group>";
+		};
+		41DD9A022206224800403EFA /* RTCar */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9A032206224800403EFA /* AppDelegate.swift */,
+				41DD9A052206224800403EFA /* ViewController.swift */,
+				41DD9A072206224800403EFA /* Main.storyboard */,
+				41DD9A0D2206224800403EFA /* Assets.xcassets */,
+				41DD9A0F2206224800403EFA /* LaunchScreen.storyboard */,
+				41DD9A122206224800403EFA /* Info.plist */,
+				41DD9A0A2206224800403EFA /* RTCar.xcdatamodeld */,
+			);
+			path = RTCar;
+			sourceTree = "<group>";
+		};
+		41DD9A1A2206224800403EFA /* RTCarTests */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9A1B2206224800403EFA /* RTCarTests.swift */,
+				41DD9A1D2206224800403EFA /* Info.plist */,
+			);
+			path = RTCarTests;
+			sourceTree = "<group>";
+		};
+		41DD9A252206224900403EFA /* RTCarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9A262206224900403EFA /* RTCarUITests.swift */,
+				41DD9A282206224900403EFA /* Info.plist */,
+			);
+			path = RTCarUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +279,59 @@
 			productReference = 41DD99EB22061F8700403EFA /* cARtelloUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		41DD9A002206224800403EFA /* RTCar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9A2F2206224900403EFA /* Build configuration list for PBXNativeTarget "RTCar" */;
+			buildPhases = (
+				41DD99FD2206224800403EFA /* Sources */,
+				41DD99FE2206224800403EFA /* Frameworks */,
+				41DD99FF2206224800403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RTCar;
+			productName = RTCar;
+			productReference = 41DD9A012206224800403EFA /* RTCar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41DD9A162206224800403EFA /* RTCarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9A302206224900403EFA /* Build configuration list for PBXNativeTarget "RTCarTests" */;
+			buildPhases = (
+				41DD9A132206224800403EFA /* Sources */,
+				41DD9A142206224800403EFA /* Frameworks */,
+				41DD9A152206224800403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41DD9A192206224800403EFA /* PBXTargetDependency */,
+			);
+			name = RTCarTests;
+			productName = RTCarTests;
+			productReference = 41DD9A172206224800403EFA /* RTCarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		41DD9A212206224800403EFA /* RTCarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9A312206224900403EFA /* Build configuration list for PBXNativeTarget "RTCarUITests" */;
+			buildPhases = (
+				41DD9A1E2206224800403EFA /* Sources */,
+				41DD9A1F2206224800403EFA /* Frameworks */,
+				41DD9A202206224800403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41DD9A242206224900403EFA /* PBXTargetDependency */,
+			);
+			name = RTCarUITests;
+			productName = RTCarUITests;
+			productReference = 41DD9A222206224800403EFA /* RTCarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +353,17 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 41DD99C922061F8600403EFA;
 					};
+					41DD9A002206224800403EFA = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					41DD9A162206224800403EFA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 41DD9A002206224800403EFA;
+					};
+					41DD9A212206224800403EFA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 41DD9A002206224800403EFA;
+					};
 				};
 			};
 			buildConfigurationList = 41DD99C522061F8600403EFA /* Build configuration list for PBXProject "cARtello" */;
@@ -223,6 +382,9 @@
 				41DD99C922061F8600403EFA /* cARtello */,
 				41DD99DF22061F8700403EFA /* cARtelloTests */,
 				41DD99EA22061F8700403EFA /* cARtelloUITests */,
+				41DD9A002206224800403EFA /* RTCar */,
+				41DD9A162206224800403EFA /* RTCarTests */,
+				41DD9A212206224800403EFA /* RTCarUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +409,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		41DD99E922061F8700403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD99FF2206224800403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A112206224800403EFA /* LaunchScreen.storyboard in Resources */,
+				41DD9A0E2206224800403EFA /* Assets.xcassets in Resources */,
+				41DD9A092206224800403EFA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A152206224800403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A202206224800403EFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,6 +467,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		41DD99FD2206224800403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A062206224800403EFA /* ViewController.swift in Sources */,
+				41DD9A042206224800403EFA /* AppDelegate.swift in Sources */,
+				41DD9A0C2206224800403EFA /* RTCar.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A132206224800403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A1C2206224800403EFA /* RTCarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A1E2206224800403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A272206224900403EFA /* RTCarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +505,16 @@
 			isa = PBXTargetDependency;
 			target = 41DD99C922061F8600403EFA /* cARtello */;
 			targetProxy = 41DD99EC22061F8700403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9A192206224800403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9A002206224800403EFA /* RTCar */;
+			targetProxy = 41DD9A182206224800403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9A242206224900403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9A002206224800403EFA /* RTCar */;
+			targetProxy = 41DD9A232206224900403EFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -309,6 +531,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				41DD99D922061F8700403EFA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		41DD9A072206224800403EFA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41DD9A082206224800403EFA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41DD9A0F2206224800403EFA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41DD9A102206224800403EFA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -550,6 +788,124 @@
 			};
 			name = Release;
 		};
+		41DD9A292206224900403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41DD9A2A2206224900403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41DD9A2B2206224900403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RTCar.app/RTCar";
+			};
+			name = Debug;
+		};
+		41DD9A2C2206224900403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RTCar.app/RTCar";
+			};
+			name = Release;
+		};
+		41DD9A2D2206224900403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RTCar;
+			};
+			name = Debug;
+		};
+		41DD9A2E2206224900403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RTCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RTCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RTCar;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -589,7 +945,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		41DD9A2F2206224900403EFA /* Build configuration list for PBXNativeTarget "RTCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9A292206224900403EFA /* Debug */,
+				41DD9A2A2206224900403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9A302206224900403EFA /* Build configuration list for PBXNativeTarget "RTCarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9A2B2206224900403EFA /* Debug */,
+				41DD9A2C2206224900403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9A312206224900403EFA /* Build configuration list for PBXNativeTarget "RTCarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9A2D2206224900403EFA /* Debug */,
+				41DD9A2E2206224900403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41DD9A0A2206224800403EFA /* RTCar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41DD9A0B2206224800403EFA /* RTCar.xcdatamodel */,
+			);
+			currentVersion = 41DD9A0B2206224800403EFA /* RTCar.xcdatamodel */;
+			path = RTCar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 41DD99C222061F8600403EFA /* Project object */;
 }
