@@ -13,38 +13,49 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    let config = ARWorldTrackingConfiguration()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
+       // sceneView.debugOptions =
+            //[ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
+        config.planeDetection = .horizontal
+        
+        sceneView.session.run(config)
+    
         sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+    func createFloorNode(anchor:ARPlaneAnchor) ->SCNNode{
+        let floorNode = SCNNode(geometry: SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))) //1
+        floorNode.position=SCNVector3(anchor.center.x,0,anchor.center.z)                                               //2
+        floorNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue                                             //3
+        floorNode.geometry?.firstMaterial?.isDoubleSided = true                                                        //4
+        floorNode.eulerAngles = SCNVector3(Double.pi/2,0,0)                                                    //5
+        return floorNode                                                                                               //6
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else {return} //1
+        let planeNode = createFloorNode(anchor: planeAnchor) //2
+        node.addChildNode(planeNode) //3
+    }
+    
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
+        node.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        let planeNode = createFloorNode(anchor: planeAnchor)
+        node.addChildNode(planeNode)
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        guard let _ = anchor as? ARPlaneAnchor else {return}
+        node.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
     }
 
     // MARK: - ARSCNViewDelegate
@@ -58,18 +69,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 */
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
+    //func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
-    }
+    //}
     
-    func sessionWasInterrupted(_ session: ARSession) {
+   // func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
         
-    }
+    //}
     
-    func sessionInterruptionEnded(_ session: ARSession) {
+    //func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
-    }
+   // }
 }
+
+
