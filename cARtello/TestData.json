@@ -1,0 +1,130 @@
+{
+    "1544641822": {
+        "acme": {
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "bandwidth_kbps": "792",
+            "jitter_ms": "108.661",
+            "loss_percent": "0",
+            "rssi_dbm": "-35"
+        },
+        "octan": {
+            "rssi_dbm": "-50"
+        },
+        "timestamp": 1544641822
+    },
+    "1544641823": {},
+    "1544641824": {
+        "acme": {
+            "bandwidth_kbps": "790",
+            "jitter_ms": "78.879",
+            "loss_percent": "0",
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "rssi_dbm": "-35"
+        },
+        "octan": {
+            "bandwidth_kbps": "796",
+            "jitter_ms": "84.136",
+            "loss_percent": "0",
+            "rssi_dbm": "-50"
+        },
+        "timestamp": 1544641824
+    },
+    "1544641825": {},
+    "1544641826": {
+        "acme": {
+            "bandwidth_kbps": "792",
+            "jitter_ms": "84.063",
+            "loss_percent": "0",
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "bandwidth_kbps": "798",
+            "jitter_ms": "123.249",
+            "loss_percent": "0",
+            "rssi_dbm": "-35"
+        },
+        "octan": {
+            "bandwidth_kbps": "795",
+            "jitter_ms": "61.272",
+            "loss_percent": "0",
+            "rssi_dbm": "-50"
+        },
+        "timestamp": 1544641826
+    },
+    "1544641827": {},
+    "1544641828": {},
+    "1544641829": {
+        "acme": {
+            "bandwidth_kbps": "797",
+            "jitter_ms": "84.471",
+            "loss_percent": "0",
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "bandwidth_kbps": "789",
+            "jitter_ms": "61.164",
+            "loss_percent": "0",
+            "rssi_dbm": "-41"
+        },
+        "octan": {
+            "bandwidth_kbps": "796",
+            "jitter_ms": "84.148",
+            "loss_percent": "0",
+            "rssi_dbm": "-56"
+        },
+        "timestamp": 1544641829
+    },
+    "1544641830": {},
+    "1544641831": {},
+    "1544641832": {},
+    "1544641833": {
+        "acme": {
+            "bandwidth_kbps": "791",
+            "jitter_ms": "84.136",
+            "loss_percent": "0",
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "rssi_dbm": "-41"
+        },
+        "octan": {
+            "rssi_dbm": "-56"
+        },
+        "timestamp": 1544641833
+    },
+    "1544641834": {},
+    "1544641835": {
+        "acme": {
+            "rssi_dbm": "-57"
+        },
+        "latitude_deg": 45.45958658333333,
+        "longitude_deg": -73.82274576666667,
+        "globex": {
+            "bandwidth_kbps": "798",
+            "jitter_ms": "64.673",
+            "loss_percent": "0",
+            "rssi_dbm": "-41"
+        },
+        "octan": {
+            "bandwidth_kbps": "799",
+            "jitter_ms": "78.709",
+            "loss_percent": "0",
+            "rssi_dbm": "-56"
+        },
+        "timestamp": 1544641835
+    }
+}
