@@ -23,6 +23,7 @@
 		41DD9A112206224800403EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A0F2206224800403EFA /* LaunchScreen.storyboard */; };
 		41DD9A1C2206224800403EFA /* RTCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A1B2206224800403EFA /* RTCarTests.swift */; };
 		41DD9A272206224900403EFA /* RTCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A262206224900403EFA /* RTCarUITests.swift */; };
+		41DD9A332206228200403EFA /* ExperimentalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A322206228200403EFA /* ExperimentalData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		41DD9A222206224800403EFA /* RTCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DD9A262206224900403EFA /* RTCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCarUITests.swift; sourceTree = "<group>"; };
 		41DD9A282206224900403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A322206228200403EFA /* ExperimentalData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExperimentalData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				41DD9A0F2206224800403EFA /* LaunchScreen.storyboard */,
 				41DD9A122206224800403EFA /* Info.plist */,
 				41DD9A0A2206224800403EFA /* RTCar.xcdatamodeld */,
+				41DD9A322206228200403EFA /* ExperimentalData.json */,
 			);
 			path = RTCar;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD9A112206224800403EFA /* LaunchScreen.storyboard in Resources */,
+				41DD9A332206228200403EFA /* ExperimentalData.json in Resources */,
 				41DD9A0E2206224800403EFA /* Assets.xcassets in Resources */,
 				41DD9A092206224800403EFA /* Main.storyboard in Resources */,
 			);
