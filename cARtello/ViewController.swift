@@ -13,7 +13,7 @@ import CoreLocation
 import MapKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
+    
     @IBOutlet var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
     var mapTile: UIImage!
@@ -21,12 +21,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // sceneView.debugOptions =
-            //[ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
+         sceneView.debugOptions =
+        [ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
         config.planeDetection = .horizontal
         
         sceneView.session.run(config)
-    
+        
         sceneView.delegate = self
         
         createMapTile(coordinate: CLLocationCoordinate2DMake(45.45958658333333, -73.82274576666667)) {(snapshot, err) in
@@ -38,12 +38,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func createFloorNode(anchor:ARPlaneAnchor) ->SCNNode{
-        let floorNode = SCNNode(geometry: SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))) //1
-        floorNode.position=SCNVector3(anchor.center.x,0,anchor.center.z)                                               //2
-        floorNode.geometry?.firstMaterial?.diffuse.contents = self.mapTile                                          //3
-        floorNode.geometry?.firstMaterial?.isDoubleSided = true                                                        //4
-        floorNode.eulerAngles = SCNVector3(Double.pi/2,0,0)                                                    //5
-        return floorNode                                                                                               //6
+        let floorNode = SCNNode(geometry: SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z)))
+        floorNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+        floorNode.geometry?.firstMaterial?.diffuse.contents = self.mapTile
+        floorNode.geometry?.firstMaterial?.isDoubleSided = true
+        floorNode.eulerAngles = SCNVector3(Double.pi/2,0,-Double.pi)
+        return floorNode
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
@@ -54,15 +54,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
-        node.enumerateChildNodes { (node, _) in
-            node.removeFromParentNode()
-        }
-        
-        let planeNode = self.createFloorNode(anchor: planeAnchor)
-        node.addChildNode(planeNode)
-    }
+        guard let planeAnchor = anchor as?  ARPlaneAnchor,
+            let planeNode = node.childNodes.first,
+            let plane = planeNode.geometry as? SCNPlane
+            else { return }
+        let width = CGFloat(planeAnchor.extent.x)
+        let height = CGFloat(planeAnchor.extent.z)
+        plane.width = width
+        plane.height = height
 
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNode.position = SCNVector3(x, y, z)
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard let _ = anchor as? ARPlaneAnchor else {return}
         node.enumerateChildNodes { (node, _) in
@@ -86,32 +92,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         snapShotter.start(completionHandler: completion);
     }
     
-
+    
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
+    /*
+     // Override to create and configure nodes for anchors added to the view's session.
+     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+     let node = SCNNode()
      
-        return node
-    }
-*/
+     return node
+     }
+     */
     
-//     func session(_ session: ARSession, didFailWithError error: Error) {
-//         Present an error message to the user
-//
-//    }
-//
-//    func sessionWasInterrupted(_ session: ARSession) {
-//         Inform the user that the session has been interrupted, for example, by presenting an overlay
-//        
-//    }
-//
-//    func sessionInterruptionEnded(_ session: ARSession) {
-//         Reset tracking and/or remove existing anchors if consistent tracking is required
-//        
-//    }
+    //     func session(_ session: ARSession, didFailWithError error: Error) {
+    //         Present an error message to the user
+    //
+    //    }
+    //
+    //    func sessionWasInterrupted(_ session: ARSession) {
+    //         Inform the user that the session has been interrupted, for example, by presenting an overlay
+    //
+    //    }
+    //
+    //    func sessionInterruptionEnded(_ session: ARSession) {
+    //         Reset tracking and/or remove existing anchors if consistent tracking is required
+    //
+    //    }
 }
 
 
