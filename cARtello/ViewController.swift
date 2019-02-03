@@ -133,6 +133,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         self.anchor = planeAnchor
         self.node = node
+        createMapTile() {(snapshot, err) in
+            guard let image = snapshot?.image else {
+                print(err.debugDescription)
+                return
+            }
+            if let tile = self.tile {
+                tile.geometry?.firstMaterial?.diffuse.contents = image
+            } else {
+                let node = self.createFloorNode(anchor: self.anchor, mapTile: image)
+                self.node.addChildNode(node)
+                self.tile = node
+            }
+        }
         realTimeSim.start()
     }
     
@@ -148,7 +161,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         
         let (latitude, longitude) = (center.latitude, center.longitude)
         let location = CLLocationCoordinate2DMake(latitude, longitude)
-        let region = MKCoordinateRegion.init(center: location, span: .init(latitudeDelta: currentRadius, longitudeDelta: currentRadius))
+        let metadata = dataIngest.metadata
+        let region = MKCoordinateRegion.init(center: location, span: .init(latitudeDelta: metadata.maxLatitude - metadata.minLatitude, longitudeDelta: metadata.maxLongitude - metadata.minLongitude))
         mapSnapshotOptions.region = region
 //        mapSnapshotOptions.scale = UIScreen.main.scale
 //        mapSnapshotOptions.size = CGSize(width: 600, height: 600)
@@ -161,14 +175,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
     // MARK: - RealTimeSimDelegate
     func realTimeSim(_ realTimeSim: RealTimeSim, didPingDataPoint dataPoint: DataPoint) {
-        if currentMaxLat == nil {
-            setCurrentBoogles(with: dataPoint)
-            setTileImage(dataPoint)
-        } else if dataPoint.latitude > currentMaxLat || dataPoint.latitude < currentMinLat || dataPoint.longitude > currentMaxLong || dataPoint.longitude < currentMinLong {
-            currentRadius += Constants.initialRadius
-            setCurrentBoogles(with: dataPoint)
-            setTileImage(dataPoint)
-        }
+//        if currentMaxLat == nil {
+//            setCurrentBoogles(with: dataPoint)
+//            setTileImage(dataPoint)
+//        } else if dataPoint.latitude > currentMaxLat || dataPoint.latitude < currentMinLat || dataPoint.longitude > currentMaxLong || dataPoint.longitude < currentMinLong {
+//            currentRadius += Constants.initialRadius
+//            setCurrentBoogles(with: dataPoint)
+//            setTileImage(dataPoint)
+//        }
         
         setCarPos(dataPoint)
     }
