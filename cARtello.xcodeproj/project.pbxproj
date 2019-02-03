@@ -28,6 +28,8 @@
 		41DD9A8122065B4100403EFA /* CarModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A6B22065B4100403EFA /* CarModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41DD9A8822065B7C00403EFA /* DecisionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A632206521600403EFA /* DecisionAlgorithm.swift */; };
 		41DD9A8922065B7C00403EFA /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A61220650EB00403EFA /* CarModel.swift */; };
+		41DD9A8A220675B600403EFA /* ExperimentalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A322206228200403EFA /* ExperimentalData.json */; };
+		41DD9A8B220675B900403EFA /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A34220622DA00403EFA /* TestData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -515,7 +517,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD99D022061F8600403EFA /* art.scnassets in Resources */,
+				41DD9A8B220675B900403EFA /* TestData.json in Resources */,
 				41DD99DA22061F8700403EFA /* LaunchScreen.storyboard in Resources */,
+				41DD9A8A220675B600403EFA /* ExperimentalData.json in Resources */,
 				41DD99D722061F8700403EFA /* Assets.xcassets in Resources */,
 				41DD99D522061F8600403EFA /* Main.storyboard in Resources */,
 			);
