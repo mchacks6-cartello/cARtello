@@ -45,7 +45,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 0.5)
+        realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 10)
         
         realTimeSim.delegate = self
     }
@@ -80,7 +80,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
 
     func createCarNode(anchor: simd_float3) -> SCNNode {
-        let carNode = SCNNode(geometry: SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.005))
+        let carNode = SCNNode(geometry: SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0.005))
         carNode.position = SCNVector3(anchor.x, 0, anchor.z)
         carNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red;
         return carNode
@@ -102,8 +102,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
             let newVec = scaleCoordinates(latitude: dataPoint.latitude, longitude: dataPoint.longitude)
             SCNTransaction.animationDuration = 1.0
             var vecAnchor = SCNVector3()
-            vecAnchor.x = newVec.x
-            vecAnchor.z = newVec.z + self.anchorVector.z
+            vecAnchor.x = self.tile.position.x - newVec.z
+            vecAnchor.z = newVec.x + self.tile.position.z
             self.car.position = vecAnchor
             self.currentCarPosLat = dataPoint.latitude
             self.currentCarPosLong = dataPoint.longitude
@@ -118,14 +118,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     }
     
     func scaleCoordinates(latitude: Double, longitude: Double)  -> SCNVector3 {
-        
+        let diffLat = latitude - center.latitude
+        let diffLong = longitude - center.longitude
         
         let tileLat: CGFloat = CGFloat(dataIngest.metadata.maxLatitude - self.dataIngest.metadata.minLatitude)
         let tileLong: CGFloat = CGFloat(dataIngest.metadata.maxLongitude - self.dataIngest.metadata.minLongitude)
         
         
 
-        return SCNVector3(CGFloat(self.currentCarPosLat - self.dataIngest.metadata.minLatitude) /  tileLat * Constants.tileDimen,0 , CGFloat(self.currentCarPosLong - self.dataIngest.metadata.minLongitude) /  tileLong * Constants.tileDimen)
+        return SCNVector3(CGFloat(diffLat) /  tileLat * (Constants.tileDimen / 2),0, CGFloat(diffLong) /  tileLong * (Constants.tileDimen / 2))
     
     }
     
@@ -147,9 +148,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
                 let node = self.createFloorNode(anchor: self.anchorVector, mapTile: image)
                 self.node.addChildNode(node)
                 self.tile = node
+                self.realTimeSim.start()
             }
         }
-        realTimeSim.start()
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
@@ -167,8 +168,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         let metadata = dataIngest.metadata
         let region = MKCoordinateRegion.init(center: location, span: .init(latitudeDelta: metadata.maxLatitude - metadata.minLatitude, longitudeDelta: metadata.maxLongitude - metadata.minLongitude))
         mapSnapshotOptions.region = region
-//        mapSnapshotOptions.scale = UIScreen.main.scale
-//        mapSnapshotOptions.size = CGSize(width: 600, height: 600)
+        mapSnapshotOptions.scale = UIScreen.main.scale
+        mapSnapshotOptions.size = CGSize(width: 1200, height: 1200)
         mapSnapshotOptions.showsBuildings = true
         mapSnapshotOptions.showsPointsOfInterest = true
         
