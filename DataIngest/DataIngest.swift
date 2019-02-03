@@ -38,7 +38,7 @@ public class DataIngest {
                     points.append(dataPoint)
                 }
             }
-            dataPoints = points
+            dataPoints = points.sorted(by: <)
         } catch {
             return nil
         }
@@ -84,7 +84,7 @@ public class DataIngest {
     
 }
 
-public struct DataPoint {
+public struct DataPoint: Comparable {
     
     enum Keys {
         static let latitudeKey = "latitude_deg"
@@ -129,6 +129,14 @@ public struct DataPoint {
         self.longitude = longitude
         self.latitude = latitude
         self.networks = oNetworks
+    }
+    
+    public static func ==(lhs: DataPoint, rhs: DataPoint) -> Bool {
+        return lhs.timestamp == rhs.timestamp
+    }
+    
+    public static func <(lhs: DataPoint, rhs: DataPoint) -> Bool {
+        return lhs.timestamp < rhs.timestamp
     }
     
 }
