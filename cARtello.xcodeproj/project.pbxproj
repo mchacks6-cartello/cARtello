@@ -21,6 +21,21 @@
 		41DD9A54220644BB00403EFA /* DataIngest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A3F220644BB00403EFA /* DataIngest.framework */; };
 		41DD9A55220644BB00403EFA /* DataIngest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A3F220644BB00403EFA /* DataIngest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41DD9A5D220644D500403EFA /* DataIngest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A382206240300403EFA /* DataIngest.swift */; };
+		41DD9A7422065B4100403EFA /* CarModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A6B22065B4100403EFA /* CarModel.framework */; };
+		41DD9A7B22065B4100403EFA /* CarModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A7A22065B4100403EFA /* CarModelTests.swift */; };
+		41DD9A7D22065B4100403EFA /* CarModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DD9A6D22065B4100403EFA /* CarModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41DD9A8022065B4100403EFA /* CarModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A6B22065B4100403EFA /* CarModel.framework */; };
+		41DD9A8122065B4100403EFA /* CarModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9A6B22065B4100403EFA /* CarModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41DD9A8822065B7C00403EFA /* DecisionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A632206521600403EFA /* DecisionAlgorithm.swift */; };
+		41DD9A8922065B7C00403EFA /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9A61220650EB00403EFA /* CarModel.swift */; };
+		41DD9A8A220675B600403EFA /* ExperimentalData.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A322206228200403EFA /* ExperimentalData.json */; };
+		41DD9A8B220675B900403EFA /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD9A34220622DA00403EFA /* TestData.json */; };
+		41DD9ABA2206798D00403EFA /* RealTimeSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */; };
+		41DD9AC12206798D00403EFA /* RealTimeSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9AC02206798D00403EFA /* RealTimeSimTests.swift */; };
+		41DD9AC32206798D00403EFA /* RealTimeSim.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DD9AB32206798C00403EFA /* RealTimeSim.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41DD9AC62206798D00403EFA /* RealTimeSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */; };
+		41DD9AC72206798D00403EFA /* RealTimeSim.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41DD9ACF220679A500403EFA /* RealTimeSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9ACE220679A500403EFA /* RealTimeSim.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +74,48 @@
 			remoteGlobalIDString = 41DD9A3E220644BB00403EFA;
 			remoteInfo = DataIngest;
 		};
+		41DD9A7522065B4100403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9A6A22065B4100403EFA;
+			remoteInfo = CarModel;
+		};
+		41DD9A7722065B4100403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD99C922061F8600403EFA;
+			remoteInfo = cARtello;
+		};
+		41DD9A7E22065B4100403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9A6A22065B4100403EFA;
+			remoteInfo = CarModel;
+		};
+		41DD9ABB2206798D00403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9AB02206798C00403EFA;
+			remoteInfo = RealTimeSim;
+		};
+		41DD9ABD2206798D00403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD99C922061F8600403EFA;
+			remoteInfo = cARtello;
+		};
+		41DD9AC42206798D00403EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41DD99C222061F8600403EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41DD9AB02206798C00403EFA;
+			remoteInfo = RealTimeSim;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +126,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				41DD9A55220644BB00403EFA /* DataIngest.framework in Embed Frameworks */,
+				41DD9AC72206798D00403EFA /* RealTimeSim.framework in Embed Frameworks */,
+				41DD9A8122065B4100403EFA /* CarModel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +158,21 @@
 		41DD9A47220644BB00403EFA /* DataIngestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataIngestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DD9A4E220644BB00403EFA /* DataIngestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataIngestTests.swift; sourceTree = "<group>"; };
 		41DD9A50220644BB00403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A61220650EB00403EFA /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		41DD9A632206521600403EFA /* DecisionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionAlgorithm.swift; sourceTree = "<group>"; };
+		41DD9A6B22065B4100403EFA /* CarModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9A6D22065B4100403EFA /* CarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
+		41DD9A6E22065B4100403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9A7322065B4100403EFA /* CarModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9A7A22065B4100403EFA /* CarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTests.swift; sourceTree = "<group>"; };
+		41DD9A7C22065B4100403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9AB12206798C00403EFA /* RealTimeSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealTimeSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9AB32206798C00403EFA /* RealTimeSim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealTimeSim.h; sourceTree = "<group>"; };
+		41DD9AB42206798C00403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9AB92206798C00403EFA /* RealTimeSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealTimeSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41DD9AC02206798D00403EFA /* RealTimeSimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSimTests.swift; sourceTree = "<group>"; };
+		41DD9AC22206798D00403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DD9ACE220679A500403EFA /* RealTimeSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSim.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD9A54220644BB00403EFA /* DataIngest.framework in Frameworks */,
+				41DD9AC62206798D00403EFA /* RealTimeSim.framework in Frameworks */,
+				41DD9A8022065B4100403EFA /* CarModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +215,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		41DD9A6822065B4100403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A7022065B4100403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A7422065B4100403EFA /* CarModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AAE2206798C00403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AB62206798C00403EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9ABA2206798D00403EFA /* RealTimeSim.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -150,6 +256,10 @@
 				41DD99EE22061F8700403EFA /* cARtelloUITests */,
 				41DD9A40220644BB00403EFA /* DataIngest */,
 				41DD9A4D220644BB00403EFA /* DataIngestTests */,
+				41DD9A6C22065B4100403EFA /* CarModel */,
+				41DD9A7922065B4100403EFA /* CarModelTests */,
+				41DD9AB22206798C00403EFA /* RealTimeSim */,
+				41DD9ABF2206798D00403EFA /* RealTimeSimTests */,
 				41DD99CB22061F8600403EFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +272,10 @@
 				41DD99EB22061F8700403EFA /* cARtelloUITests.xctest */,
 				41DD9A3F220644BB00403EFA /* DataIngest.framework */,
 				41DD9A47220644BB00403EFA /* DataIngestTests.xctest */,
+				41DD9A6B22065B4100403EFA /* CarModel.framework */,
+				41DD9A7322065B4100403EFA /* CarModelTests.xctest */,
+				41DD9AB12206798C00403EFA /* RealTimeSim.framework */,
+				41DD9AB92206798C00403EFA /* RealTimeSimTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,9 +317,9 @@
 		41DD9A40220644BB00403EFA /* DataIngest */ = {
 			isa = PBXGroup;
 			children = (
-				41DD9A382206240300403EFA /* DataIngest.swift */,
 				41DD9A41220644BB00403EFA /* DataIngest.h */,
 				41DD9A42220644BB00403EFA /* Info.plist */,
+				41DD9A382206240300403EFA /* DataIngest.swift */,
 			);
 			path = DataIngest;
 			sourceTree = "<group>";
@@ -219,6 +333,45 @@
 			path = DataIngestTests;
 			sourceTree = "<group>";
 		};
+		41DD9A6C22065B4100403EFA /* CarModel */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9A6D22065B4100403EFA /* CarModel.h */,
+				41DD9A6E22065B4100403EFA /* Info.plist */,
+				41DD9A61220650EB00403EFA /* CarModel.swift */,
+				41DD9A632206521600403EFA /* DecisionAlgorithm.swift */,
+			);
+			path = CarModel;
+			sourceTree = "<group>";
+		};
+		41DD9A7922065B4100403EFA /* CarModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9A7A22065B4100403EFA /* CarModelTests.swift */,
+				41DD9A7C22065B4100403EFA /* Info.plist */,
+			);
+			path = CarModelTests;
+			sourceTree = "<group>";
+		};
+		41DD9AB22206798C00403EFA /* RealTimeSim */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9AB32206798C00403EFA /* RealTimeSim.h */,
+				41DD9AB42206798C00403EFA /* Info.plist */,
+				41DD9ACE220679A500403EFA /* RealTimeSim.swift */,
+			);
+			path = RealTimeSim;
+			sourceTree = "<group>";
+		};
+		41DD9ABF2206798D00403EFA /* RealTimeSimTests */ = {
+			isa = PBXGroup;
+			children = (
+				41DD9AC02206798D00403EFA /* RealTimeSimTests.swift */,
+				41DD9AC22206798D00403EFA /* Info.plist */,
+			);
+			path = RealTimeSimTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -227,6 +380,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD9A51220644BB00403EFA /* DataIngest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A6622065B4100403EFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A7D22065B4100403EFA /* CarModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AAC2206798C00403EFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9AC32206798D00403EFA /* RealTimeSim.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +415,8 @@
 			);
 			dependencies = (
 				41DD9A53220644BB00403EFA /* PBXTargetDependency */,
+				41DD9A7F22065B4100403EFA /* PBXTargetDependency */,
+				41DD9AC52206798D00403EFA /* PBXTargetDependency */,
 			);
 			name = cARtello;
 			productName = cARtello;
@@ -325,6 +496,80 @@
 			productReference = 41DD9A47220644BB00403EFA /* DataIngestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		41DD9A6A22065B4100403EFA /* CarModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9A8222065B4100403EFA /* Build configuration list for PBXNativeTarget "CarModel" */;
+			buildPhases = (
+				41DD9A6622065B4100403EFA /* Headers */,
+				41DD9A6722065B4100403EFA /* Sources */,
+				41DD9A6822065B4100403EFA /* Frameworks */,
+				41DD9A6922065B4100403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarModel;
+			productName = CarModel;
+			productReference = 41DD9A6B22065B4100403EFA /* CarModel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		41DD9A7222065B4100403EFA /* CarModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9A8522065B4100403EFA /* Build configuration list for PBXNativeTarget "CarModelTests" */;
+			buildPhases = (
+				41DD9A6F22065B4100403EFA /* Sources */,
+				41DD9A7022065B4100403EFA /* Frameworks */,
+				41DD9A7122065B4100403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41DD9A7622065B4100403EFA /* PBXTargetDependency */,
+				41DD9A7822065B4100403EFA /* PBXTargetDependency */,
+			);
+			name = CarModelTests;
+			productName = CarModelTests;
+			productReference = 41DD9A7322065B4100403EFA /* CarModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		41DD9AB02206798C00403EFA /* RealTimeSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9ACC2206798D00403EFA /* Build configuration list for PBXNativeTarget "RealTimeSim" */;
+			buildPhases = (
+				41DD9AAC2206798C00403EFA /* Headers */,
+				41DD9AAD2206798C00403EFA /* Sources */,
+				41DD9AAE2206798C00403EFA /* Frameworks */,
+				41DD9AAF2206798C00403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RealTimeSim;
+			productName = RealTimeSim;
+			productReference = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		41DD9AB82206798C00403EFA /* RealTimeSimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41DD9ACD2206798D00403EFA /* Build configuration list for PBXNativeTarget "RealTimeSimTests" */;
+			buildPhases = (
+				41DD9AB52206798C00403EFA /* Sources */,
+				41DD9AB62206798C00403EFA /* Frameworks */,
+				41DD9AB72206798C00403EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41DD9ABC2206798D00403EFA /* PBXTargetDependency */,
+				41DD9ABE2206798D00403EFA /* PBXTargetDependency */,
+			);
+			name = RealTimeSimTests;
+			productName = RealTimeSimTests;
+			productReference = 41DD9AB92206798C00403EFA /* RealTimeSimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,6 +598,21 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 41DD99C922061F8600403EFA;
 					};
+					41DD9A6A22065B4100403EFA = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					41DD9A7222065B4100403EFA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 41DD99C922061F8600403EFA;
+					};
+					41DD9AB02206798C00403EFA = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					41DD9AB82206798C00403EFA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 41DD99C922061F8600403EFA;
+					};
 				};
 			};
 			buildConfigurationList = 41DD99C522061F8600403EFA /* Build configuration list for PBXProject "cARtello" */;
@@ -373,6 +633,10 @@
 				41DD99EA22061F8700403EFA /* cARtelloUITests */,
 				41DD9A3E220644BB00403EFA /* DataIngest */,
 				41DD9A46220644BB00403EFA /* DataIngestTests */,
+				41DD9A6A22065B4100403EFA /* CarModel */,
+				41DD9A7222065B4100403EFA /* CarModelTests */,
+				41DD9AB02206798C00403EFA /* RealTimeSim */,
+				41DD9AB82206798C00403EFA /* RealTimeSimTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +647,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD99D022061F8600403EFA /* art.scnassets in Resources */,
+				41DD9A8B220675B900403EFA /* TestData.json in Resources */,
 				41DD99DA22061F8700403EFA /* LaunchScreen.storyboard in Resources */,
+				41DD9A8A220675B600403EFA /* ExperimentalData.json in Resources */,
 				41DD99D722061F8700403EFA /* Assets.xcassets in Resources */,
 				41DD99D522061F8600403EFA /* Main.storyboard in Resources */,
 			);
@@ -411,6 +677,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		41DD9A45220644BB00403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A6922065B4100403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A7122065B4100403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AAF2206798C00403EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AB72206798C00403EFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -461,6 +755,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		41DD9A6722065B4100403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A8922065B7C00403EFA /* CarModel.swift in Sources */,
+				41DD9A8822065B7C00403EFA /* DecisionAlgorithm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9A6F22065B4100403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9A7B22065B4100403EFA /* CarModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AAD2206798C00403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9ACF220679A500403EFA /* RealTimeSim.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9AB52206798C00403EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41DD9AC12206798D00403EFA /* RealTimeSimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -488,6 +815,36 @@
 			isa = PBXTargetDependency;
 			target = 41DD9A3E220644BB00403EFA /* DataIngest */;
 			targetProxy = 41DD9A52220644BB00403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9A7622065B4100403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9A6A22065B4100403EFA /* CarModel */;
+			targetProxy = 41DD9A7522065B4100403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9A7822065B4100403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD99C922061F8600403EFA /* cARtello */;
+			targetProxy = 41DD9A7722065B4100403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9A7F22065B4100403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9A6A22065B4100403EFA /* CarModel */;
+			targetProxy = 41DD9A7E22065B4100403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9ABC2206798D00403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9AB02206798C00403EFA /* RealTimeSim */;
+			targetProxy = 41DD9ABB2206798D00403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9ABE2206798D00403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD99C922061F8600403EFA /* cARtello */;
+			targetProxy = 41DD9ABD2206798D00403EFA /* PBXContainerItemProxy */;
+		};
+		41DD9AC52206798D00403EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41DD9AB02206798C00403EFA /* RealTimeSim */;
+			targetProxy = 41DD9AC42206798D00403EFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -843,6 +1200,201 @@
 			};
 			name = Release;
 		};
+		41DD9A8322065B4100403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CarModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.CarModel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		41DD9A8422065B4100403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CarModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.CarModel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		41DD9A8622065B4100403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = CarModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.CarModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cARtello.app/cARtello";
+			};
+			name = Debug;
+		};
+		41DD9A8722065B4100403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = CarModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.CarModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cARtello.app/cARtello";
+			};
+			name = Release;
+		};
+		41DD9AC82206798D00403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RealTimeSim/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RealTimeSim;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		41DD9AC92206798D00403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RealTimeSim/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RealTimeSim;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		41DD9ACA2206798D00403EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RealTimeSimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RealTimeSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cARtello.app/cARtello";
+			};
+			name = Debug;
+		};
+		41DD9ACB2206798D00403EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2TP756DEM;
+				INFOPLIST_FILE = RealTimeSimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rpecka.RealTimeSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cARtello.app/cARtello";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -896,6 +1448,42 @@
 			buildConfigurations = (
 				41DD9A5B220644BB00403EFA /* Debug */,
 				41DD9A5C220644BB00403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9A8222065B4100403EFA /* Build configuration list for PBXNativeTarget "CarModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9A8322065B4100403EFA /* Debug */,
+				41DD9A8422065B4100403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9A8522065B4100403EFA /* Build configuration list for PBXNativeTarget "CarModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9A8622065B4100403EFA /* Debug */,
+				41DD9A8722065B4100403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9ACC2206798D00403EFA /* Build configuration list for PBXNativeTarget "RealTimeSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9AC82206798D00403EFA /* Debug */,
+				41DD9AC92206798D00403EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41DD9ACD2206798D00403EFA /* Build configuration list for PBXNativeTarget "RealTimeSimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41DD9ACA2206798D00403EFA /* Debug */,
+				41DD9ACB2206798D00403EFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
