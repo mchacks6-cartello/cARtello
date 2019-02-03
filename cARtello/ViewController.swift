@@ -31,10 +31,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     var anchor: ARPlaneAnchor!
     var node: SCNNode!
     var tile: SCNNode!
+    var car: SCNNode!
     var currentMinLat: Double!
     var currentMaxLat: Double!
     var currentMinLong: Double!
     var currentMaxLong: Double!
+    var currentCarPosLat: Double!
+    var currentCarPosLong: Double!
+    var currentCarPosVector: SCNVector3!
     
     lazy var center = dataIngest.dataPoints.first!
     
@@ -77,14 +81,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
 
     func createCarNode(anchor: ARPlaneAnchor) -> SCNNode {
-        let carNode = SCNNode(geometry: SCNPlane(width:2.0, height: 2.0))
+        let carNode = SCNNode(geometry: SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.05))
         carNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
-        
-        guard let shipScene  = SCNScene(named: "art.scnassets/ship.scn"), let shipNode = shipScene.rootNode.childNode(withName: "ship", recursively: false) else {
-            return SCNNode()
-        }
-        
-        return shipNode
+        carNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red;
+        return carNode
     }
     
     func createFloorNode(anchor: ARPlaneAnchor, mapTile: UIImage) -> SCNNode {
@@ -97,6 +97,35 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         return floorNode
     }
     
+    func setCarPos(_ dataPoint: DataPoint) {
+        if let carPosLat = self.currentCarPosLat {
+//            self.currentCarPosLat = dataPoint.latitude
+//            self.currentCarPosLong = dataPoint.longitude
+            
+            self.currentCarPosVector = self.car.position
+//            let newVec = scaleCoordinates(latitude: dataPoint.latitude, longitude: dataPoint.longitude)
+            SCNTransaction.animationDuration = 1.0
+            self.car.position.x = Float(self.car.position.x - 0.2)
+        } else {
+            let carNode = self.createCarNode(anchor: self.anchor)
+            self.node.addChildNode(carNode)
+            self.car = carNode
+            
+            self.currentCarPosLat = dataPoint.latitude
+            self.currentCarPosLong = dataPoint.longitude
+        }
+    }
+    
+    func scaleCoordinates(latitude: Double, longitude: Double)  -> SCNVector3 {
+        let tileLat = self.currentMaxLat - self.currentMinLat
+        let tileLong = self.currentMaxLong - self.currentMinLong
+        
+        let diffLat = latitude - self.currentCarPosLat
+        let diffLong = longitude - self.currentCarPosLong
+        
+        return SCNVector3()
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard self.anchor == nil else { return }
         
@@ -106,37 +135,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         self.node = node
         realTimeSim.start()
     }
-    
-//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        // Update only anchors and nodes set up by `renderer(_:didAdd:for:)`.
-//        guard let planeAnchor = anchor as? ARPlaneAnchor,
-//            let plane = node.childNodes.first as? Plane
-//            else { return }
-//
-//        // Update ARSCNPlaneGeometry to the anchor's new estimated shape.
-//        if let planeGeometry = plane.meshNode.geometry as? ARSCNPlaneGeometry {
-//            planeGeometry.update(from: planeAnchor.geometry)
-//        }
-//
-//        // Update extent visualization to the anchor's new bounding rectangle.
-//        if let extentGeometry = plane.extentNode.geometry as? SCNPlane {
-//            extentGeometry.width = CGFloat(planeAnchor.extent.x)
-//            extentGeometry.height = CGFloat(planeAnchor.extent.z)
-//            plane.extentNode.simdPosition = planeAnchor.center
-//        }
-//
-//        // Update the plane's classification and the text position
-//        if #available(iOS 12.0, *),
-//            let classificationNode = plane.classificationNode,
-//            let classificationGeometry = classificationNode.geometry as? SCNText {
-//            let currentClassification = planeAnchor.classification.description
-//            if let oldClassification = classificationGeometry.string as? String, oldClassification != currentClassification {
-//                classificationGeometry.string = currentClassification
-//                classificationNode.centerAlign()
-//            }
-//        }
-//
-//    }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard let _ = anchor as? ARPlaneAnchor else {return}
@@ -171,6 +169,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
             setCurrentBoogles(with: dataPoint)
             setTileImage(dataPoint)
         }
+        
+        setCarPos(dataPoint)
     }
     
     func setTileImage(_ dataPoint: DataPoint) {
