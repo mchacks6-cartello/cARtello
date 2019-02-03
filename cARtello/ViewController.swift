@@ -11,17 +11,22 @@ import SceneKit
 import ARKit
 import CoreLocation
 import MapKit
+import DataIngest
+import RealTimeSim
 
-class ViewController: UIViewController, ARSCNViewDelegate {
-    
+class ViewController: UIViewController, ARSCNViewDelegate, RealTimeSimDelegate {
     @IBOutlet var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
     var mapTile: UIImage!
+    let dataIngest: DataIngest! = DataIngest.init(jsonName: "ExperimentalData")
+    var realTimeSim: RealTimeSim!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 5)
         
-         sceneView.debugOptions =
+        realTimeSim.delegate = self
+        sceneView.debugOptions =
         [ARSCNDebugOptions.showFeaturePoints,ARSCNDebugOptions.showWorldOrigin]
         config.planeDetection = .horizontal
         
@@ -29,7 +34,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.delegate = self
         
-        createMapTile(coordinate: CLLocationCoordinate2DMake(45.45958658333333, -73.82274576666667)) {(snapshot, err) in
+        guard let dataPoint = dataIngest.dataPoints.first else {
+                return
+        }
+        
+        let (latitude, longitude) = (dataPoint.latitude, dataPoint.longitude)
+        createMapTile(coordinate: CLLocationCoordinate2DMake(latitude, longitude)) {(snapshot, err) in
             guard let image = snapshot?.image else {
                 return
             }
@@ -37,7 +47,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func createFloorNode(anchor:ARPlaneAnchor) ->SCNNode{
+    func createFloorNode(anchor: ARPlaneAnchor) -> SCNNode {
         let floorNode = SCNNode(geometry: SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z)))
         floorNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
         floorNode.geometry?.firstMaterial?.diffuse.contents = self.mapTile
@@ -45,19 +55,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         floorNode.eulerAngles = SCNVector3(Double.pi/2,0,-Double.pi)
         return floorNode
     }
+//
+//    func createCarNode(anchor: ARPlaneAnchor) -> SCNNode {
+//        let carNode = SCNNode(geometry: SCNPlane(width:10.0, height: 10.0))
+//        carNode.position = SCNVector(anchor.center.x, 0, anchor.center.z)
+//
+//    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else {return} //1
-        
-        let planeNode = self.createFloorNode(anchor: planeAnchor)
-        node.addChildNode(planeNode)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
-        node.enumerateChildNodes { (node, _) in
-            node.removeFromParentNode()
-        }
         
         let planeNode = self.createFloorNode(anchor: planeAnchor)
         node.addChildNode(planeNode)
@@ -102,6 +108,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         snapShotter.start(completionHandler: completion);
     }
     
+    // MARK: - RealTimeSimDelegate
+    func realTimeSim(_ realTimeSim: RealTimeSim, didPingDataPoint dataPoint: DataPoint) {
+        
+    }
+    
+    func realTimeSimDidFinishSimulation(_ realTimeSim: RealTimeSim) {
+        
+    }
     
     // MARK: - ARSCNViewDelegate
     
