@@ -36,6 +36,9 @@
 		41DD9AC62206798D00403EFA /* RealTimeSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */; };
 		41DD9AC72206798D00403EFA /* RealTimeSim.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DD9AB12206798C00403EFA /* RealTimeSim.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41DD9ACF220679A500403EFA /* RealTimeSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD9ACE220679A500403EFA /* RealTimeSim.swift */; };
+		94F75F24220693C300FDD0AB /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F75F23220693C300FDD0AB /* home.storyboard */; };
+		94F75F262206A19100FDD0AB /* Untitled_Artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F75F252206A19000FDD0AB /* Untitled_Artwork.png */; };
+		94F75F282206A1FA00FDD0AB /* Untitled_Artwork-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F75F272206A1FA00FDD0AB /* Untitled_Artwork-1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +176,9 @@
 		41DD9AC02206798D00403EFA /* RealTimeSimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSimTests.swift; sourceTree = "<group>"; };
 		41DD9AC22206798D00403EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41DD9ACE220679A500403EFA /* RealTimeSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSim.swift; sourceTree = "<group>"; };
+		94F75F23220693C300FDD0AB /* home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
+		94F75F252206A19000FDD0AB /* Untitled_Artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Untitled_Artwork.png; path = ../../../../../var/folders/qf/jlry5yg12f59qksc37wv16y80000gn/T/com.apple.iChat/Messages/Transfers/Untitled_Artwork.png; sourceTree = "<group>"; };
+		94F75F272206A1FA00FDD0AB /* Untitled_Artwork-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled_Artwork-1.png"; path = "../../../../../var/folders/qf/jlry5yg12f59qksc37wv16y80000gn/T/com.apple.iChat/Messages/Transfers/Untitled_Artwork-1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,9 @@
 				41DD99CD22061F8600403EFA /* AppDelegate.swift */,
 				41DD99CF22061F8600403EFA /* art.scnassets */,
 				41DD99D122061F8600403EFA /* ViewController.swift */,
+				94F75F272206A1FA00FDD0AB /* Untitled_Artwork-1.png */,
+				94F75F252206A19000FDD0AB /* Untitled_Artwork.png */,
+				94F75F23220693C300FDD0AB /* home.storyboard */,
 				41DD99D322061F8600403EFA /* Main.storyboard */,
 				41DD99D622061F8700403EFA /* Assets.xcassets */,
 				41DD99D822061F8700403EFA /* LaunchScreen.storyboard */,
@@ -647,10 +656,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD99D022061F8600403EFA /* art.scnassets in Resources */,
+				94F75F262206A19100FDD0AB /* Untitled_Artwork.png in Resources */,
+				94F75F24220693C300FDD0AB /* home.storyboard in Resources */,
 				41DD9A8B220675B900403EFA /* TestData.json in Resources */,
 				41DD99DA22061F8700403EFA /* LaunchScreen.storyboard in Resources */,
 				41DD9A8A220675B600403EFA /* ExperimentalData.json in Resources */,
 				41DD99D722061F8700403EFA /* Assets.xcassets in Resources */,
+				94F75F282206A1FA00FDD0AB /* Untitled_Artwork-1.png in Resources */,
 				41DD99D522061F8600403EFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
