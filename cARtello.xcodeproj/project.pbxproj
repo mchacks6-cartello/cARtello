@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D13503220692DB00A340C1 /* SimulationMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D13502220692DB00A340C1 /* SimulationMenu.storyboard */; };
+		05D13505220693F200A340C1 /* SimulationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D13504220693F200A340C1 /* SimulationMenuViewController.swift */; };
 		41DD99CE22061F8600403EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99CD22061F8600403EFA /* AppDelegate.swift */; };
 		41DD99D022061F8600403EFA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DD99CF22061F8600403EFA /* art.scnassets */; };
 		41DD99D222061F8600403EFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99D122061F8600403EFA /* ViewController.swift */; };
@@ -105,6 +107,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05D13502220692DB00A340C1 /* SimulationMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SimulationMenu.storyboard; sourceTree = "<group>"; };
+		05D13504220693F200A340C1 /* SimulationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationMenuViewController.swift; sourceTree = "<group>"; };
 		41DD99CA22061F8600403EFA /* cARtello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cARtello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DD99CD22061F8600403EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41DD99CF22061F8600403EFA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 				41DD99CD22061F8600403EFA /* AppDelegate.swift */,
 				41DD99CF22061F8600403EFA /* art.scnassets */,
 				41DD99D122061F8600403EFA /* ViewController.swift */,
+				05D13502220692DB00A340C1 /* SimulationMenu.storyboard */,
+				05D13504220693F200A340C1 /* SimulationMenuViewController.swift */,
 				41DD99D322061F8600403EFA /* Main.storyboard */,
 				41DD99D622061F8700403EFA /* Assets.xcassets */,
 				41DD99D822061F8700403EFA /* LaunchScreen.storyboard */,
@@ -516,6 +522,7 @@
 			files = (
 				41DD99D022061F8600403EFA /* art.scnassets in Resources */,
 				41DD99DA22061F8700403EFA /* LaunchScreen.storyboard in Resources */,
+				05D13503220692DB00A340C1 /* SimulationMenu.storyboard in Resources */,
 				41DD99D722061F8700403EFA /* Assets.xcassets in Resources */,
 				41DD99D522061F8600403EFA /* Main.storyboard in Resources */,
 			);
@@ -571,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD99D222061F8600403EFA /* ViewController.swift in Sources */,
+				05D13505220693F200A340C1 /* SimulationMenuViewController.swift in Sources */,
 				41DD99CE22061F8600403EFA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

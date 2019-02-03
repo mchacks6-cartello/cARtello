@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad11_0rounded" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Simulation Menu View Controller-->
+        <scene sceneID="LZY-sf-PX0">
+            <objects>
+                <viewController id="oW1-aT-y1g" customClass="SimulationMenuViewController" customModule="cARtello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p9n-6W-8Tu">
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Multiplier" borderStyle="roundedRect" textAlignment="center" minimumFontSize="25" background="texture.png" translatesAutoresizingMaskIntoConstraints="NO" id="jch-sP-Rzi">
+                                <rect key="frame" x="488" y="171" width="219" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.42610877752304077" blue="0.46895205974578857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.84124015883190728" green="0.83023303243982394" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="LZg-K2-Rdh"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsA-iN-J4R">
+                                <rect key="frame" x="1103" y="48" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Frequency" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-kt-in9">
+                                <rect key="frame" x="501" y="327" width="192" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.42845971436343877" blue="0.47204068156434786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jch-sP-Rzi" firstAttribute="top" secondItem="2lR-IY-cb2" secondAttribute="top" constant="198" id="8GB-Jx-U1b"/>
+                            <constraint firstItem="2lR-IY-cb2" firstAttribute="trailing" secondItem="jch-sP-Rzi" secondAttribute="trailing" constant="127" id="ahd-mQ-8xz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2lR-IY-cb2"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="RsA-iN-J4R" id="xW8-xW-vUW"/>
+                        <outlet property="frequencyTextField" destination="w8y-kt-in9" id="yg6-ER-ErM"/>
+                        <outlet property="multiplierTextField" destination="jch-sP-Rzi" id="ove-Jf-dzn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKV-hv-SFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84.422110552763826" y="14.388489208633095"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="texture.png" width="512" height="512"/>
+    </resources>
+</document>
