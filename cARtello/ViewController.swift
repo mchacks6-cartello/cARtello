@@ -15,31 +15,36 @@ import DataIngest
 import RealTimeSim
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, RealTimeSimDelegate {
+    
+    enum Constants {
+        static let tileDimen: CGFloat = 1
+        static let initialRadius: Double = 0.005
+    }
+    
     @IBOutlet weak var sessionInfoLabel: UILabel!
     @IBOutlet weak var sessionInfoView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     let config = ARWorldTrackingConfiguration()
-    var mapTile: UIImage!
     let dataIngest: DataIngest! = DataIngest.init(jsonName: "ExperimentalData")
     var realTimeSim: RealTimeSim!
     
+    var anchor: ARPlaneAnchor!
+    var node: SCNNode!
+    var tile: SCNNode!
+    var currentMinLat: Double!
+    var currentMaxLat: Double!
+    var currentMinLong: Double!
+    var currentMaxLong: Double!
+    
+    lazy var center = dataIngest.dataPoints.first!
+    
+    var currentRadius = Constants.initialRadius
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 5)
+        realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 0.5)
         
         realTimeSim.delegate = self
-        
-        guard let dataPoint = dataIngest.dataPoints.first else {
-                return
-        }
-        
-        let (latitude, longitude) = (dataPoint.latitude, dataPoint.longitude)
-        createMapTile(coordinate: CLLocationCoordinate2DMake(latitude, longitude)) {(snapshot, err) in
-            guard let image = snapshot?.image else {
-                return
-            }
-            self.mapTile = image
-        }
     }
     
     /// - Tag: StartARSession
@@ -49,6 +54,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         // Start the view's AR session with a configuration that uses the rear camera,
         // device position and orientation tracking, and plane detection.
         config.planeDetection = [.horizontal]
+        config.worldAlignment = .gravityAndHeading
         sceneView.session.run(config)
         
         // Set a delegate to track the number of plane anchors for providing UI feedback.
@@ -81,51 +87,56 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         return shipNode
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        // Place content only for anchors found by plane detection.
-        guard let planeAnchor = anchor as? ARPlaneAnchor, let mapTile = self.mapTile else { return }
-        
-        // Create a custom object to visualize the plane geometry and extent.
-        let plane = Plane(anchor: planeAnchor, mapTile: mapTile, in: sceneView)
-        let car = createCarNode(anchor: planeAnchor)
-        
-        plane.addChildNode(car)
-        // Add the visualization to the ARKit-managed node so that it tracks
-        // changes in the plane anchor as plane estimation continues.
-        node.addChildNode(plane)
-        
+    func createFloorNode(anchor: ARPlaneAnchor, mapTile: UIImage) -> SCNNode {
+        let floorNode = SCNNode(geometry: SCNPlane(width: Constants.tileDimen, height: Constants.tileDimen))
+        floorNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+        floorNode.orientation = SCNQuaternion(0, 0, 0, 0)
+        floorNode.geometry?.firstMaterial?.diffuse.contents = mapTile
+        floorNode.geometry?.firstMaterial?.isDoubleSided = true
+        floorNode.eulerAngles = SCNVector3(Double.pi/2,0,-Double.pi)
+        return floorNode
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        // Update only anchors and nodes set up by `renderer(_:didAdd:for:)`.
-        guard let planeAnchor = anchor as? ARPlaneAnchor,
-            let plane = node.childNodes.first as? Plane
-            else { return }
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard self.anchor == nil else { return }
         
-        // Update ARSCNPlaneGeometry to the anchor's new estimated shape.
-        if let planeGeometry = plane.meshNode.geometry as? ARSCNPlaneGeometry {
-            planeGeometry.update(from: planeAnchor.geometry)
-        }
-        
-        // Update extent visualization to the anchor's new bounding rectangle.
-        if let extentGeometry = plane.extentNode.geometry as? SCNPlane {
-            extentGeometry.width = CGFloat(planeAnchor.extent.x)
-            extentGeometry.height = CGFloat(planeAnchor.extent.z)
-            plane.extentNode.simdPosition = planeAnchor.center
-        }
-        
-        // Update the plane's classification and the text position
-        if #available(iOS 12.0, *),
-            let classificationNode = plane.classificationNode,
-            let classificationGeometry = classificationNode.geometry as? SCNText {
-            let currentClassification = planeAnchor.classification.description
-            if let oldClassification = classificationGeometry.string as? String, oldClassification != currentClassification {
-                classificationGeometry.string = currentClassification
-                classificationNode.centerAlign()
-            }
-        }
-        
+        // Place content only for anchors found by plane detection.
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        self.anchor = planeAnchor
+        self.node = node
+        realTimeSim.start()
     }
+    
+//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+//        // Update only anchors and nodes set up by `renderer(_:didAdd:for:)`.
+//        guard let planeAnchor = anchor as? ARPlaneAnchor,
+//            let plane = node.childNodes.first as? Plane
+//            else { return }
+//
+//        // Update ARSCNPlaneGeometry to the anchor's new estimated shape.
+//        if let planeGeometry = plane.meshNode.geometry as? ARSCNPlaneGeometry {
+//            planeGeometry.update(from: planeAnchor.geometry)
+//        }
+//
+//        // Update extent visualization to the anchor's new bounding rectangle.
+//        if let extentGeometry = plane.extentNode.geometry as? SCNPlane {
+//            extentGeometry.width = CGFloat(planeAnchor.extent.x)
+//            extentGeometry.height = CGFloat(planeAnchor.extent.z)
+//            plane.extentNode.simdPosition = planeAnchor.center
+//        }
+//
+//        // Update the plane's classification and the text position
+//        if #available(iOS 12.0, *),
+//            let classificationNode = plane.classificationNode,
+//            let classificationGeometry = classificationNode.geometry as? SCNText {
+//            let currentClassification = planeAnchor.classification.description
+//            if let oldClassification = classificationGeometry.string as? String, oldClassification != currentClassification {
+//                classificationGeometry.string = currentClassification
+//                classificationNode.centerAlign()
+//            }
+//        }
+//
+//    }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard let _ = anchor as? ARPlaneAnchor else {return}
@@ -134,15 +145,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
         }
     }
     
-    func createMapTile(coordinate: CLLocationCoordinate2D, completion: @escaping MKMapSnapshotter.CompletionHandler) {
-        let radius: Double = 1000
+    func createMapTile(completion: @escaping MKMapSnapshotter.CompletionHandler) {
         let mapSnapshotOptions = MKMapSnapshotter.Options()
         
-        let location = coordinate
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: radius, longitudinalMeters: radius)
+        let (latitude, longitude) = (center.latitude, center.longitude)
+        let location = CLLocationCoordinate2DMake(latitude, longitude)
+        let region = MKCoordinateRegion.init(center: location, span: .init(latitudeDelta: currentRadius, longitudeDelta: currentRadius))
         mapSnapshotOptions.region = region
-        mapSnapshotOptions.scale = UIScreen.main.scale
-        mapSnapshotOptions.size = CGSize(width: 300, height: 300)
+//        mapSnapshotOptions.scale = UIScreen.main.scale
+//        mapSnapshotOptions.size = CGSize(width: 600, height: 600)
         mapSnapshotOptions.showsBuildings = true
         mapSnapshotOptions.showsPointsOfInterest = true
         
@@ -152,11 +163,41 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
     // MARK: - RealTimeSimDelegate
     func realTimeSim(_ realTimeSim: RealTimeSim, didPingDataPoint dataPoint: DataPoint) {
-        
+        if currentMaxLat == nil {
+            setCurrentBoogles(with: dataPoint)
+            setTileImage(dataPoint)
+        } else if dataPoint.latitude > currentMaxLat || dataPoint.latitude < currentMinLat || dataPoint.longitude > currentMaxLong || dataPoint.longitude < currentMinLong {
+            currentRadius += Constants.initialRadius
+            setCurrentBoogles(with: dataPoint)
+            setTileImage(dataPoint)
+        }
+    }
+    
+    func setTileImage(_ dataPoint: DataPoint) {
+        createMapTile() {(snapshot, err) in
+            guard let image = snapshot?.image else {
+                print(err.debugDescription)
+                return
+            }
+            if let tile = self.tile {
+                tile.geometry?.firstMaterial?.diffuse.contents = image
+            } else {
+                let node = self.createFloorNode(anchor: self.anchor, mapTile: image)
+                self.node.addChildNode(node)
+                self.tile = node
+            }
+        }
+    }
+    
+    func setCurrentBoogles(with dataPoint: DataPoint) {
+        currentMaxLat = dataPoint.latitude + currentRadius
+        currentMinLat = dataPoint.latitude - currentRadius
+        currentMaxLong = dataPoint.longitude + currentRadius
+        currentMinLong = dataPoint.longitude - currentRadius
     }
     
     func realTimeSimDidFinishSimulation(_ realTimeSim: RealTimeSim) {
-        
+        print("Done")
     }
     
     // MARK: - ARSessionDelegate
