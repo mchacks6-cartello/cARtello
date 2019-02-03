@@ -13,8 +13,10 @@ import CoreLocation
 import MapKit
 import DataIngest
 import RealTimeSim
+import CarModel
 
-class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, RealTimeSimDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, RealTimeSimDelegate, CarModelDelegate {
+    
     
     enum Constants {
         static let tileDimen: CGFloat = 1
@@ -27,7 +29,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     let config = ARWorldTrackingConfiguration()
     let dataIngest: DataIngest! = DataIngest.init(jsonName: "ExperimentalData")
     var realTimeSim: RealTimeSim!
-    
+//    let carModel = CarModel(decisionAlgorithm: PowerLevelAvoidDisconnectAlgorithm(minimumRSSI: -50))
+    let carModel = CarModel(decisionAlgorithm: PowerLevelAlgorithm())
     
     var anchorVector: simd_float3!
 
@@ -46,7 +49,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     override func viewDidLoad() {
         super.viewDidLoad()
         realTimeSim = RealTimeSim.init(dataIngest: dataIngest, frequency: 10)
-        
+        carModel.delegate = self
         realTimeSim.delegate = self
     }
     
@@ -189,7 +192,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
 //        }
         
         setCarPos(dataPoint)
+        self.carModel.process(networks: dataPoint.networks)
     }
+    
     
     func setTileImage(_ dataPoint: DataPoint) {
         createMapTile() {(snapshot, err) in
@@ -215,16 +220,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         guard let frame = session.currentFrame else { return }
-        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
+//        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
     }
     
     func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
         guard let frame = session.currentFrame else { return }
-        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
+//        updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        updateSessionInfoLabel(for: session.currentFrame!, trackingState: camera.trackingState)
+//        updateSessionInfoLabel(for: session.currentFrame!, trackingState: camera.trackingState)
     }
     
     // MARK: - ARSessionObserver
@@ -270,40 +275,48 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
     private func updateSessionInfoLabel(for frame: ARFrame, trackingState: ARCamera.TrackingState) {
         // Update the UI to provide feedback on the state of the AR experience.
-        let message: String
+//        let message: String
         
-        switch trackingState {
-        case .normal where frame.anchors.isEmpty:
-            // No planes detected; provide instructions for this app's AR interactions.
-            message = "Move the device around to detect horizontal and vertical surfaces."
-            
-        case .notAvailable:
-            message = "Tracking unavailable."
-            
-        case .limited(.excessiveMotion):
-            message = "Tracking limited - Move the device more slowly."
-            
-        case .limited(.insufficientFeatures):
-            message = "Tracking limited - Point the device at an area with visible surface detail, or improve lighting conditions."
-            
-        case .limited(.initializing):
-            message = "Initializing AR session."
-            
-        default:
-            // No feedback needed when tracking is normal and planes are visible.
-            // (Nor when in unreachable limited-tracking states.)
-            message = ""
-            
-        }
-        
-        sessionInfoLabel.text = message
-        sessionInfoView.isHidden = message.isEmpty
+//        switch trackingState {
+//        case .normal where frame.anchors.isEmpty:
+//            // No planes detected; provide instructions for this app's AR interactions.
+//            message = "Move the device around to detect horizontal and vertical surfaces."
+//
+//        case .notAvailable:
+//            message = "Tracking unavailable."
+//
+//        case .limited(.excessiveMotion):
+//            message = "Tracking limited - Move the device more slowly."
+//
+//        case .limited(.insufficientFeatures):
+//            message = "Tracking limited - Point the device at an area with visible surface detail, or improve lighting conditions."
+//
+//        case .limited(.initializing):
+//            message = "Initializing AR session."
+//
+//        default:
+//            // No feedback needed when tracking is normal and planes are visible.
+//            // (Nor when in unreachable limited-tracking states.)
+//            message = ""
+//
+//        }
+////
+//        sessionInfoLabel.text = message
+//        sessionInfoView.isHidden = message.isEmpty
     }
     
     private func resetTracking() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    func carModel(_ carModel: CarModel, didUpdateConnectionState connectionState: ConnectionState) {
+        let string = "Possible networks: \n" +
+
+            carModel.availableNetworks.joined(separator: "\n") + "\n --- \nConnected to: " + carModel.currNetwork
+        self.sessionInfoLabel.text = string
+        
     }
 }
 
