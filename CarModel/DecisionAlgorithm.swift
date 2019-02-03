@@ -25,6 +25,7 @@ public enum ConnectionState {
 }
 
 public class PowerLevelAlgorithm: DecisionAlgorithm {
+    public init() {}
     
     public func networkChoice(for connectionState: ConnectionState, availableNetworks: [Network]) -> Decision {
         let sorted = availableNetworks.sorted { return $0.rssi ?? 0 < $1.rssi ?? 0 }
@@ -50,7 +51,7 @@ public class PowerLevelAvoidDisconnectAlgorithm: PowerLevelAlgorithm {
     
     public let minimumRSSI: Double
     
-    init(minimumRSSI: Double) {
+    public init(minimumRSSI: Double) {
         self.minimumRSSI = minimumRSSI
     }
     
