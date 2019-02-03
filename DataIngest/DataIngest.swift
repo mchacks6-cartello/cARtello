@@ -10,7 +10,20 @@ import Foundation
 
 public class DataIngest {
     
+    public struct Metadata {
+        public let minTime: Int
+        public let maxTime: Int
+        public let minLatitude: Double
+        public let maxLatitude: Double
+        public let minLongitude: Double
+        public let maxLongitude: Double
+    }
+    
     public let dataPoints: [DataPoint]
+    
+    public private(set) lazy var metadata: Metadata = {
+        return DataIngest.extractMetadata(from: dataPoints)
+    }()
     
     public init?(jsonName: String) {
         guard let path = Bundle.main.url(forResource: jsonName, withExtension: ".json") else {
@@ -31,7 +44,43 @@ public class DataIngest {
         }
     }
     
-    
+    private static func extractMetadata(from dataPoints: [DataPoint]) -> Metadata {
+        var minTime: Int
+        var maxTime: Int
+        var minLatitude: Double
+        var maxLatitude: Double
+        var minLongitude: Double
+        var maxLongitude: Double
+        
+        let first = dataPoints.first!
+        minTime = first.timestamp
+        maxTime = first.timestamp
+        minLatitude = first.latitude
+        maxLatitude = first.latitude
+        minLongitude = first.longitude
+        maxLongitude = first.longitude
+        
+        for i in 1..<dataPoints.count {
+            let current = dataPoints[i]
+            if current.timestamp < minTime {
+                minTime = current.timestamp
+            } else if current.timestamp > maxTime {
+                maxTime = current.timestamp
+            }
+            if current.latitude < minLatitude {
+                minLatitude = current.latitude
+            } else if current.latitude > maxLatitude {
+                maxLatitude = current.latitude
+            }
+            if current.longitude < minLongitude {
+                minLongitude = current.longitude
+            } else  if current.longitude > maxLongitude {
+                maxLongitude = current.longitude
+            }
+        }
+        
+        return Metadata(minTime: minTime, maxTime: maxTime, minLatitude: minLatitude, maxLatitude: maxLatitude, minLongitude: minLongitude, maxLongitude: maxLongitude)
+    }
     
 }
 
