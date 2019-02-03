@@ -28,17 +28,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     let dataIngest: DataIngest! = DataIngest.init(jsonName: "ExperimentalData")
     var realTimeSim: RealTimeSim!
     
-    var anchor: ARPlaneAnchor!
+    
+    var anchorVector: simd_float3!
+
     var node: SCNNode!
     var tile: SCNNode!
     var car: SCNNode!
-    var currentMinLat: Double!
-    var currentMaxLat: Double!
-    var currentMinLong: Double!
-    var currentMaxLong: Double!
     var currentCarPosLat: Double!
     var currentCarPosLong: Double!
     var currentCarPosVector: SCNVector3!
+
     
     lazy var center = dataIngest.dataPoints.first!
     
@@ -80,16 +79,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     }
     
 
-    func createCarNode(anchor: ARPlaneAnchor) -> SCNNode {
-        let carNode = SCNNode(geometry: SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.05))
-        carNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+    func createCarNode(anchor: simd_float3) -> SCNNode {
+        let carNode = SCNNode(geometry: SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.005))
+        carNode.position = SCNVector3(anchor.x, 0, anchor.z)
         carNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red;
         return carNode
     }
     
-    func createFloorNode(anchor: ARPlaneAnchor, mapTile: UIImage) -> SCNNode {
+    func createFloorNode(anchor: simd_float3, mapTile: UIImage) -> SCNNode {
         let floorNode = SCNNode(geometry: SCNPlane(width: Constants.tileDimen, height: Constants.tileDimen))
-        floorNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+        floorNode.position = SCNVector3(anchor.x, 0, anchor.z)
         floorNode.orientation = SCNQuaternion(0, 0, 0, 0)
         floorNode.geometry?.firstMaterial?.diffuse.contents = mapTile
         floorNode.geometry?.firstMaterial?.isDoubleSided = true
@@ -98,16 +97,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     }
     
     func setCarPos(_ dataPoint: DataPoint) {
-        if let carPosLat = self.currentCarPosLat {
-//            self.currentCarPosLat = dataPoint.latitude
-//            self.currentCarPosLong = dataPoint.longitude
-            
+        if self.currentCarPosLat != nil {
             self.currentCarPosVector = self.car.position
-//            let newVec = scaleCoordinates(latitude: dataPoint.latitude, longitude: dataPoint.longitude)
+            let newVec = scaleCoordinates(latitude: dataPoint.latitude, longitude: dataPoint.longitude)
             SCNTransaction.animationDuration = 1.0
-            self.car.position.x = Float(self.car.position.x - 0.2)
+            var vecAnchor = SCNVector3()
+            vecAnchor.x = newVec.x
+            vecAnchor.z = newVec.z + self.anchorVector.z
+            self.car.position = vecAnchor
+            self.currentCarPosLat = dataPoint.latitude
+            self.currentCarPosLong = dataPoint.longitude
         } else {
-            let carNode = self.createCarNode(anchor: self.anchor)
+            let carNode = self.createCarNode(anchor: self.anchorVector)
             self.node.addChildNode(carNode)
             self.car = carNode
             
@@ -117,21 +118,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     }
     
     func scaleCoordinates(latitude: Double, longitude: Double)  -> SCNVector3 {
-        let tileLat = self.currentMaxLat - self.currentMinLat
-        let tileLong = self.currentMaxLong - self.currentMinLong
         
-        let diffLat = latitude - self.currentCarPosLat
-        let diffLong = longitude - self.currentCarPosLong
         
-        return SCNVector3()
+        let tileLat: CGFloat = CGFloat(dataIngest.metadata.maxLatitude - self.dataIngest.metadata.minLatitude)
+        let tileLong: CGFloat = CGFloat(dataIngest.metadata.maxLongitude - self.dataIngest.metadata.minLongitude)
+        
+        
+
+        return SCNVector3(CGFloat(self.currentCarPosLat - self.dataIngest.metadata.minLatitude) /  tileLat * Constants.tileDimen,0 , CGFloat(self.currentCarPosLong - self.dataIngest.metadata.minLongitude) /  tileLong * Constants.tileDimen)
+    
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard self.anchor == nil else { return }
+        guard self.anchorVector == nil else { return }
         
         // Place content only for anchors found by plane detection.
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        self.anchor = planeAnchor
+        self.anchorVector = planeAnchor.center
         self.node = node
         createMapTile() {(snapshot, err) in
             guard let image = snapshot?.image else {
@@ -141,7 +144,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
             if let tile = self.tile {
                 tile.geometry?.firstMaterial?.diffuse.contents = image
             } else {
-                let node = self.createFloorNode(anchor: self.anchor, mapTile: image)
+                let node = self.createFloorNode(anchor: self.anchorVector, mapTile: image)
                 self.node.addChildNode(node)
                 self.tile = node
             }
@@ -196,18 +199,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
             if let tile = self.tile {
                 tile.geometry?.firstMaterial?.diffuse.contents = image
             } else {
-                let node = self.createFloorNode(anchor: self.anchor, mapTile: image)
+                let node = self.createFloorNode(anchor: self.anchorVector, mapTile: image)
                 self.node.addChildNode(node)
                 self.tile = node
             }
         }
-    }
-    
-    func setCurrentBoogles(with dataPoint: DataPoint) {
-        currentMaxLat = dataPoint.latitude + currentRadius
-        currentMinLat = dataPoint.latitude - currentRadius
-        currentMaxLong = dataPoint.longitude + currentRadius
-        currentMinLong = dataPoint.longitude - currentRadius
     }
     
     func realTimeSimDidFinishSimulation(_ realTimeSim: RealTimeSim) {
