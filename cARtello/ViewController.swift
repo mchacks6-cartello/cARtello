@@ -29,8 +29,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     let config = ARWorldTrackingConfiguration()
     let dataIngest: DataIngest! = DataIngest.init(jsonName: "ExperimentalData")
     var realTimeSim: RealTimeSim!
-//    let carModel = CarModel(decisionAlgorithm: PowerLevelAvoidDisconnectAlgorithm(minimumRSSI: -50))
-    let carModel = CarModel(decisionAlgorithm: PowerLevelAlgorithm())
+    let carModel = CarModel(decisionAlgorithm: PowerLevelAvoidDisconnectAlgorithm(minimumRSSI: -50))
     
     var anchorVector: simd_float3!
 
@@ -83,7 +82,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, Re
     
 
     func createCarNode(anchor: simd_float3) -> SCNNode {
-        let carNode = SCNNode(geometry: SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0.005))
+        let side: CGFloat = 0.01
+        let carNode = SCNNode(geometry: SCNBox(width: side, height: side, length: side, chamferRadius: 0.005))
         carNode.position = SCNVector3(anchor.x, 0, anchor.z)
         carNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red;
         return carNode
