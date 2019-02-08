@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13DF170D2206A07300E1C95D /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF170B2206A07300E1C95D /* Plane.swift */; };
-		13DF170E2206A07300E1C95D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF170C2206A07300E1C95D /* Utilities.swift */; };
-		13DF17102206C4CC00E1C95D /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF170F2206C4CC00E1C95D /* Car.swift */; };
 		41DD99CE22061F8600403EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99CD22061F8600403EFA /* AppDelegate.swift */; };
 		41DD99D022061F8600403EFA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DD99CF22061F8600403EFA /* art.scnassets */; };
 		41DD99D222061F8600403EFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DD99D122061F8600403EFA /* ViewController.swift */; };
@@ -138,9 +135,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13DF170B2206A07300E1C95D /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
-		13DF170C2206A07300E1C95D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		13DF170F2206C4CC00E1C95D /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		41DD99CA22061F8600403EFA /* cARtello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cARtello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DD99CD22061F8600403EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41DD99CF22061F8600403EFA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -289,9 +283,6 @@
 		41DD99CC22061F8600403EFA /* cARtello */ = {
 			isa = PBXGroup;
 			children = (
-				13DF170B2206A07300E1C95D /* Plane.swift */,
-				13DF170F2206C4CC00E1C95D /* Car.swift */,
-				13DF170C2206A07300E1C95D /* Utilities.swift */,
 				41DD99CD22061F8600403EFA /* AppDelegate.swift */,
 				41DD99CF22061F8600403EFA /* art.scnassets */,
 				41DD99D122061F8600403EFA /* ViewController.swift */,
@@ -728,9 +719,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DD99D222061F8600403EFA /* ViewController.swift in Sources */,
-				13DF170D2206A07300E1C95D /* Plane.swift in Sources */,
-				13DF17102206C4CC00E1C95D /* Car.swift in Sources */,
-				13DF170E2206A07300E1C95D /* Utilities.swift in Sources */,
 				41DD99CE22061F8600403EFA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
